@@ -282,7 +282,7 @@ def run_once(count):
     score = my_model.evaluate(x_test, y_test)
     print('Model: ', save_name)
     print('acc', score[1])
-    save_tf('/kaggle/working/ICCAD_1/Training/ckpt/' + save_name + '.tflite', my_model)
+    save_tf('/kaggle/working/ICCAD_1/Training/' + save_name + '.tflite', my_model)
     #torch.save('/kaggle/working/ICCAD_1/Training/ckpt/' + save_name + '.tflite', my_model)
     pred = my_model.predict(x_test).argmax(axis=1)
     segs_TP = 0
