@@ -77,6 +77,14 @@ def txt_to_numpy(filename, row):
         row_count += 1
 
     return datamat
+def save_tf(path, model):
+    # Convert the model to the TensorFlow Lite format
+    converter = tf.lite.TFLiteConverter.from_keras_model(model)
+    tflite_model = converter.convert()
+
+    # Save the model to disk
+    with open(path, 'wb') as f:
+        f.write(tflite_model)
 
 class DataGenerator(tf.keras.utils.Sequence):
   def __init__(self, root_dir, indice_dir, mode, size):
@@ -274,8 +282,8 @@ def run_once(count):
     score = my_model.evaluate(x_test, y_test)
     print('Model: ', save_name)
     print('acc', score[1])
-    #save_tf('/kaggle/working/ICCAD_1/Training/ckpt/' + save_name + '.tflite', my_model)
-    torch.save('/kaggle/working/ICCAD_1/Training/ckpt/' + save_name + '.tflite', my_model)
+    save_tf('/kaggle/working/ICCAD_1/Training/ckpt/' + save_name + '.tflite', my_model)
+    #torch.save('/kaggle/working/ICCAD_1/Training/ckpt/' + save_name + '.tflite', my_model)
     pred = my_model.predict(x_test).argmax(axis=1)
     segs_TP = 0
     segs_TN = 0
@@ -299,7 +307,7 @@ if __name__ == '__main__':
         FB, my_model = run_once(i)
         if FB > best_FB:
             best_FB = FB
-            torch.save('/kaggle/working/ICCAD_1/Training/20_10/best_' + str(i) + '.tflite', my_model)
+            save_tf('/kaggle/working/ICCAD_1/Training/20_10/best_' + str(i) + '.tflite', my_model)
             print('Current Best: ', best_FB)
         print(FB)
     print('Current Best: ', best_FB)
