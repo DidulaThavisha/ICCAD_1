@@ -260,7 +260,8 @@ def run_once(count):
             my_model.fit(
                 x_aug,
                 y_aug,
-                epochs=50,
+                #epochs=50, #didula
+                epochs=EPOCH,
                 batch_size=args.batchsz,
                 # validation_split=0.3,
                 shuffle=True,
