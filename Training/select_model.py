@@ -312,4 +312,4 @@ if __name__ == '__main__':
             print('Current Best: ', best_FB)
         print(FB)
     print('Current Best: ', best_FB)
-    print('End of the iter')
+    print('epoch',EPOCH)
