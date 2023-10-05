@@ -304,7 +304,7 @@ def run_once(count):
     
 if __name__ == '__main__':
     best_FB = 0.0
-    for i in range(1):
+    for i in range(5):
         FB, my_model = run_once(i)
         if FB > best_FB:
             best_FB = FB
@@ -312,4 +312,3 @@ if __name__ == '__main__':
             print('Current Best: ', best_FB)
         print(FB)
     print('Current Best: ', best_FB)
-    print('epoch',EPOCH)
