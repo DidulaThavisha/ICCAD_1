@@ -15,7 +15,7 @@ from utils import stats_report
 from cosine_annealing import CosineAnnealingScheduler
 from swa.tfkeras import SWA
 
-# Define dataset
+#Define dataset
 class IEGM_DataSET():
     def __init__(self, root_dir, indice_dir, mode, size, transform=None):
         self.root_dir = root_dir
