@@ -122,7 +122,7 @@ def model_best():
       keras.layers.Input(shape=(1250, 1)),
       keras.layers.Conv1D(filters=3, kernel_size=85, strides=32, padding='valid', activation=None, use_bias=True),
       keras.layers.BatchNormalization(),
-      keras.layers.ReLU(),
+      keras.layers.LeakyReLU(),
       keras.layers.Flatten(),
 
       keras.layers.Dropout(0.3),
