@@ -127,7 +127,7 @@ def model_best():
 
       keras.layers.Dropout(0.3),
       keras.layers.Dense(20),
-      keras.layers.LeakyReLU(0.01),
+      keras.layers.LeakyReLU(0.1),
       keras.layers.Dropout(0.1),
       keras.layers.Dense(10),
       keras.layers.ReLU(),
