@@ -4,7 +4,7 @@ from keras import backend as K
 
 
 class CosineAnnealingScheduler(Callback):
-    """Cosine annealing scheduler.
+    """Cosine annealing scheduler
     """
 
     def __init__(self, T_max, eta_max, eta_min=0, verbose=0):
